@@ -42,6 +42,10 @@ export interface Certification {
   skills: string[];
   link?: string;
   iconName: string;
+  certificateUrl?: string;
+  downloadName?: string;
+  badgeImage?: string;
+  buttonLabel?: string;
 }
 
 export const portfolioData = {
@@ -334,14 +338,21 @@ export const portfolioData = {
       issuer: "Postman",
       date: "Dec 2025",
       skills: ["API Testing", "Postman API", "REST Endpoints", "Collections"],
+      certificateUrl: "/certificates/Postman_API_Student_Expert_Badge.png",
+      downloadName: "Postman_API_Student_Expert_Badge.png",
+      badgeImage: "/certificates/Postman_API_Student_Expert_Badge.png",
+      buttonLabel: "Download Badge (PNG)",
       link: "https://www.postman.com",
       iconName: "Terminal",
     },
     {
       name: "Google Gemini Certified Student",
-      issuer: "Google",
-      date: "Oct 2025",
-      skills: ["Artificial Intelligence (AI)", "Generative AI"],
+      issuer: "Google for Education",
+      date: "Oct 2025 · Valid to 2028",
+      skills: ["Artificial Intelligence (AI)", "Generative AI", "Gemini API"],
+      certificateUrl: "/certificates/Google_Gemini_Certified_Student.pdf",
+      downloadName: "Google_Gemini_Certified_Student.pdf",
+      buttonLabel: "Download Certificate (PDF)",
       link: "https://cloud.google.com",
       iconName: "Sparkles",
     },
@@ -349,7 +360,10 @@ export const portfolioData = {
       name: "Learning Playwright",
       issuer: "LinkedIn Learning",
       date: "Aug 2026",
-      skills: ["Automation", "Test Automation Tools", "Playwright"],
+      skills: ["Automation", "Test Automation Tools", "Playwright E2E"],
+      certificateUrl: "/certificates/LinkedIn_Learning_Playwright.pdf",
+      downloadName: "LinkedIn_Learning_Playwright_Certificate.pdf",
+      buttonLabel: "Download Certificate (PDF)",
       link: "https://www.linkedin.com/learning",
       iconName: "PlayCircle",
     },
@@ -357,8 +371,12 @@ export const portfolioData = {
       name: "Bharatiya Antariksh Hackathon 2026",
       issuer: "ISRO (Indian Space Research Organisation)",
       date: "2026",
+      badgeText: "Certificate ID: 2026H2SO6BAH-P09503",
       skills: ["Idea Submission", "Technical Innovation", "Hackathon"],
-      badgeText: "Certificate of Participation",
+      certificateUrl: "/certificates/ISRO_Bharatiya_Antariksh_Hackathon_2026.pdf",
+      downloadName: "ISRO_Bharatiya_Antariksh_Hackathon_Certificate.pdf",
+      buttonLabel: "Download Certificate (PDF)",
+      link: "https://www.isro.gov.in",
       iconName: "Award",
     },
   ] as Certification[],

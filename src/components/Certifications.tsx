@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { portfolioData } from '@/data/portfolioData';
 import { 
   Award, 
@@ -8,8 +9,10 @@ import {
   PlayCircle, 
   GraduationCap, 
   BookOpen, 
+  Download,
   ExternalLink,
-  CheckCircle2
+  CheckCircle2,
+  FileCheck
 } from 'lucide-react';
 
 const certIcons: Record<string, any> = {
@@ -36,7 +39,7 @@ export default function Certifications() {
             Certifications &amp; Education
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-3">
-            Industry-recognized credentials from Google, Postman, ISRO, and the University of Mumbai.
+            Industry-recognized credentials from Postman, Google, LinkedIn Learning, ISRO, and the University of Mumbai.
           </p>
         </div>
 
@@ -51,9 +54,22 @@ export default function Certifications() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="p-2.5 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
-                      <Icon className="w-5 h-5" />
-                    </div>
+                    {cert.badgeImage ? (
+                      <div className="w-12 h-12 rounded-2xl bg-slate-950 p-1 border border-cyan-500/30 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform shadow-md shadow-cyan-500/10">
+                        <Image
+                          src={cert.badgeImage}
+                          alt={cert.name}
+                          width={44}
+                          height={44}
+                          className="w-full h-full object-contain"
+                          unoptimized
+                        />
+                      </div>
+                    ) : (
+                      <div className="p-2.5 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                    )}
                     <span className="text-[11px] font-mono text-slate-400">
                       {cert.date}
                     </span>
@@ -65,17 +81,39 @@ export default function Certifications() {
                   <p className="text-xs font-medium text-cyan-400/90 mt-1">
                     {cert.issuer}
                   </p>
+
+                  {cert.badgeText && (
+                    <div className="mt-2 text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-cyan-300 border border-cyan-800/40 inline-block">
+                      {cert.badgeText}
+                    </div>
+                  )}
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-800/80 flex flex-wrap gap-1.5">
-                  {cert.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400 border border-slate-800/80"
+                <div className="space-y-3 pt-4 mt-4 border-t border-slate-800/80">
+                  <div className="flex flex-wrap gap-1.5">
+                    {cert.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400 border border-slate-800/80"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Download Certificate / Badge Button */}
+                  {cert.certificateUrl && (
+                    <a
+                      href={cert.certificateUrl}
+                      download={cert.downloadName || `${cert.name}.pdf`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2 px-3 rounded-xl bg-slate-950 hover:bg-cyan-950/60 border border-slate-700/80 hover:border-cyan-500/60 text-xs font-semibold text-slate-200 hover:text-cyan-300 transition-all flex items-center justify-center gap-1.5 shadow-sm group/btn"
                     >
-                      {skill}
-                    </span>
-                  ))}
+                      <Download className="w-3.5 h-3.5 text-cyan-400 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      <span>{cert.buttonLabel || 'Download Certificate'}</span>
+                    </a>
+                  )}
                 </div>
               </div>
             );
