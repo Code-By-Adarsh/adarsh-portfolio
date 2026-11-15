@@ -47,7 +47,7 @@ export const portfolioData = {
     email: "adarshmishra70931@gmail.com",
     phone: "+91 9235943357",
     statusBadge: "Available for QA & Test Automation Roles",
-    avatarUrl: "https://github.com/Code-By-Adarsh.png",
+    avatarUrl: "/profile.jpg",
     socials: {
       github: "https://github.com/Code-By-Adarsh",
       linkedin: "https://www.linkedin.com/in/adarsh-jayprakash-mishra",
@@ -171,6 +171,8 @@ export const portfolioData = {
         "Designed, built, and end-to-end tested a zero-login sharing platform for real-time code, multi-file, and folder transfers with auto-expiration and access limits. Audited RLS/RPC security policies and built automated Playwright regression suites.",
       techStack: ["Playwright", "TypeScript", "BVA / EP", "Security Testing", "RLS/RPC Policies", "Next.js"],
       featured: true,
+      liveUrl: "https://codedropz.vercel.app/",
+      githubUrl: "https://github.com/LeviHQ/codedropz",
       metrics: ["BVA (10m–30d, 1–999 views)", "Zero Data Leakage", "Full Playwright Suite"],
       highlights: [
         "Applied BVA and Equivalence Partitioning to expiry timeouts (10m–30d) and view limits (1–999)",
@@ -178,7 +180,6 @@ export const portfolioData = {
         "Audited RLS/RPC policies, closing public storage deletion vulnerabilities",
         "Ran automated Playwright regression suites covering upload -> retrieval -> zip extraction flow",
       ],
-      githubUrl: "https://github.com/Code-By-Adarsh",
     },
     {
       id: "skillta",
@@ -191,6 +192,7 @@ export const portfolioData = {
       techStack: ["Vitest", "Chrome DevTools", "PageSpeed", "Google Auth QA", "Iframe Sandboxing", "Next.js"],
       featured: true,
       liveUrl: "https://www.skillta.tech",
+      githubUrl: "https://github.com/LeviHQ/skillta",
       metrics: ["100 SEO & 100 Accessibility", "96 Performance", "870+ Topics Validated"],
       highlights: [
         "Led QA, end-to-end testing, and performance optimization across 60 disciplines and 290 roadmap phases",
@@ -198,7 +200,6 @@ export const portfolioData = {
         "Ensured zero data leakage across authenticated user tiers",
         "Achieved 100 SEO, 100 Accessibility, and 96 Desktop Performance scores via Chrome DevTools",
       ],
-      githubUrl: "https://github.com/Code-By-Adarsh",
     },
     {
       id: "saucedemo-qa",
@@ -210,6 +211,7 @@ export const portfolioData = {
         "Executed full STLC testing across the complete shopping flow. Authored 108 test cases across 6 modules, achieving a 96.29% pass rate and logging 4 defects in Jira by severity.",
       techStack: ["STLC", "Jira", "Test Plan", "RTM", "Boundary Value Analysis", "Severity Triage"],
       featured: true,
+      githubUrl: "https://github.com/Code-By-Adarsh/Manual-Testing-Projects/tree/main/Project-2",
       metrics: ["108 Test Cases", "96.29% Pass Rate", "4 Jira Bugs Triaged"],
       highlights: [
         "Executed full STLC testing across Login -> Cart -> Checkout flow",
@@ -217,7 +219,6 @@ export const portfolioData = {
         "Logged and prioritized 4 defects in Jira by severity",
         "Documented comprehensive Test Summary Report with defect lifecycle tracking",
       ],
-      githubUrl: "https://github.com/Code-By-Adarsh/Manual-Testing-Projects",
     },
     {
       id: "ecom-automation",
@@ -229,6 +230,7 @@ export const portfolioData = {
         "Built a Selenium WebDriver, Java, TestNG, POM framework with reusable utilities, listeners, and Extent Reports; automated core purchase flows with parallel execution. Performed end-to-end manual testing on NopCommerce following STLC alongside the automation suite.",
       techStack: ["Selenium WebDriver", "Java", "TestNG", "POM", "Extent Reports", "BVA / EP"],
       featured: true,
+      githubUrl: "https://github.com/Code-By-Adarsh/Automation-Testing-Projects/tree/main/Project_3_EcomAutomationFramework",
       metrics: ["Parallel Execution", "Extent Reports", "Dual-Track Coverage"],
       highlights: [
         "Automated core purchase flows with parallel execution to cut regression runtime",
@@ -236,7 +238,6 @@ export const portfolioData = {
         "Performed end-to-end manual testing (BVA, EP, negative testing) on NopCommerce following STLC",
         "Maintained parallel Selenium automation suite alongside manual test coverage",
       ],
-      githubUrl: "https://github.com/Code-By-Adarsh/Automation-Testing-Projects",
     },
     {
       id: "mail-karo",
@@ -248,12 +249,13 @@ export const portfolioData = {
         "Designed and executed functional, UI, negative, and form-validation test cases for the Mail Karo web app; ran cross-browser checks and documented defects.",
       techStack: ["Manual QA", "Form Validation", "Cross-Browser Testing", "Negative Testing", "Defect Reporting"],
       featured: false,
+      liveUrl: "https://mail-karo.netlify.app",
+      githubUrl: "https://github.com/Code-By-Adarsh/Mail-Karo",
       highlights: [
         "Designed and executed functional, UI, negative, and form-validation test cases",
         "Ran cross-browser compatibility checks across Chromium, Firefox, and WebKit",
         "Documented UI responsiveness defects and edge-case form submission errors",
       ],
-      githubUrl: "https://github.com/Code-By-Adarsh/Mail-Karo",
     },
   ] as Project[],
 

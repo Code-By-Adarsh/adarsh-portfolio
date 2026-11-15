@@ -12,13 +12,17 @@ import {
   Github, 
   Linkedin, 
   Twitter, 
-  Globe 
+  Globe,
+  Loader2,
+  AlertCircle
 } from 'lucide-react';
 
 export default function Contact() {
   const { personal } = portfolioData;
   const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,12 +36,55 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    setFormSubmitted(true);
-    // Simulating instant successful message feedback
+
+    setLoading(true);
+    setErrorMessage('');
+
+    try {
+      // Submits directly to your email via FormSubmit AJAX API
+      const response = await fetch(`https://formsubmit.co/ajax/${personal.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          Name: formData.name,
+          Email: formData.email,
+          Subject: formData.subject || 'New Contact from Portfolio',
+          Message: formData.message,
+          _subject: `New Portfolio Message from ${formData.name}: ${formData.subject || 'Direct Inquiry'}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success !== 'false') {
+        setFormSubmitted(true);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      // Fallback: If network or adblocker blocks FormSubmit, give option to open mailto
+      setErrorMessage(
+        'Email service is temporarily busy. You can click "Open Email Client" below to send directly!'
+      );
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const mailtoHref = `mailto:${personal.email}?subject=${encodeURIComponent(
+    formData.subject || `Inquiry from ${formData.name || 'Portfolio Visitor'}`
+  )}&body=${encodeURIComponent(
+    `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+  )}`;
 
   return (
     <section id="contact" className="py-24 bg-slate-950/60 relative">
@@ -53,7 +100,7 @@ export default function Contact() {
             Let&apos;s Build &amp; Test Together
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-3">
-            Looking for a QA Automation Engineer, Web3 tester, or full-stack collaborator? Drop me a message or connect directly.
+            Looking for a QA Automation Engineer, Web3 tester, or full-stack collaborator? Send a message directly to my inbox or reach out through my socials.
           </p>
         </div>
 
@@ -170,14 +217,19 @@ export default function Contact() {
 
           </div>
 
-          {/* Right Column: Interactive Contact Form */}
+          {/* Right Column: Interactive Direct Email Form */}
           <div className="lg:col-span-7">
             <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/40 border border-slate-800/80 shadow-2xl backdrop-blur-md">
-              <h3 className="text-xl font-bold text-white mb-2">
-                Send a Message
-              </h3>
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-bold text-white">
+                  Send a Direct Message
+                </h3>
+                <span className="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-800/40">
+                  Direct to Inbox
+                </span>
+              </div>
               <p className="text-slate-400 text-sm mb-6">
-                Fill out the form below and I&apos;ll get back to you within 24 hours.
+                Messages sent here go straight to <span className="text-cyan-300 font-medium">{personal.email}</span>.
               </p>
 
               {formSubmitted ? (
@@ -185,9 +237,9 @@ export default function Contact() {
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-white">Thank you, message received!</h4>
+                  <h4 className="text-lg font-bold text-white">Thank you! Message Sent Successfully!</h4>
                   <p className="text-sm text-slate-300">
-                    I have saved your note and will reply directly to your email address ({formData.email}).
+                    Your message was delivered directly to Adarsh&apos;s email inbox. He will get back to you at <span className="text-cyan-300">{formData.email}</span> shortly.
                   </p>
                   <button
                     onClick={() => {
@@ -196,11 +248,26 @@ export default function Contact() {
                     }}
                     className="text-xs font-mono text-cyan-400 underline pt-2"
                   >
-                    Send another note
+                    Send another message
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {errorMessage && (
+                    <div className="p-4 rounded-xl bg-amber-950/40 border border-amber-800/60 text-amber-300 text-xs flex items-start gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                      <div className="space-y-1">
+                        <p>{errorMessage}</p>
+                        <a
+                          href={mailtoHref}
+                          className="font-bold underline text-white hover:text-cyan-300 inline-block pt-1"
+                        >
+                          Click here to open email client directly &rarr;
+                        </a>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
@@ -258,13 +325,33 @@ export default function Contact() {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 group"
-                  >
-                    <span>Send Message</span>
-                    <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 disabled:opacity-60 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 group"
+                    >
+                      {loading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Delivering Email...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Send Directly to My Email</span>
+                          <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                        </>
+                      )}
+                    </button>
+
+                    <a
+                      href={mailtoHref}
+                      className="py-3.5 px-5 rounded-xl bg-slate-950 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>Open Mail App</span>
+                    </a>
+                  </div>
                 </form>
               )}
 
