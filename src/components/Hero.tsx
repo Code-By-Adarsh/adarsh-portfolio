@@ -38,7 +38,7 @@ export default function Hero() {
               </span>
               <span>{personal.statusBadge}</span>
               <span className="text-slate-500">•</span>
-              <span className="text-slate-300">Web3 & Automation</span>
+              <span className="text-slate-300">Web3 &amp; Automation</span>
             </div>
 
             {/* Main Heading */}
@@ -56,7 +56,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
-              Specialized in <span className="text-cyan-300 font-medium">Selenium</span>, <span className="text-cyan-300 font-medium">Playwright</span>, <span className="text-cyan-300 font-medium">API Testing (Postman)</span>, and production <span className="text-indigo-300 font-medium">Web3 dApp QA</span>. Founder of <a href="https://www.skillta.tech" target="_blank" rel="noreferrer" className="text-cyan-400 underline decoration-cyan-500/40 hover:decoration-cyan-400 font-medium">SkillTa</a> and creator of <span className="text-cyan-300 font-medium">Mail-Karo</span> AI SaaS.
+              Hands-on manual and automation QA across <span className="text-cyan-300 font-medium">Web3</span>, <span className="text-cyan-300 font-medium">e-commerce</span>, and <span className="text-cyan-300 font-medium">SaaS applications</span>. Skilled in STLC-driven test design, defect management, and API testing with <span className="text-indigo-300 font-medium">Selenium/Java</span>, <span className="text-cyan-300 font-medium">Playwright/JavaScript</span>, and Postman. Proven experience leading QA teams and building <span className="text-cyan-300 font-medium">CodeDropz</span> &amp; <a href="https://www.skillta.tech" target="_blank" rel="noreferrer" className="text-cyan-400 underline decoration-cyan-500/40 hover:decoration-cyan-400 font-medium">SkillTa</a>.
             </p>
 
             {/* Action Buttons */}
@@ -140,7 +140,7 @@ export default function Hero() {
                     <span className="text-xs font-semibold text-white">Adarsh Mishra</span>
                   </div>
                   <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/70 px-2 py-0.5 rounded border border-cyan-800/40">
-                    QA Tester & Dev
+                    QA Automation Tester
                   </span>
                 </div>
               </div>
@@ -151,7 +151,7 @@ export default function Hero() {
               <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px] font-mono text-slate-400">
                 <div className="flex items-center gap-1.5">
                   <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>test_runner.log</span>
+                  <span>playwright_test_runner.log</span>
                 </div>
                 <div className="flex items-center gap-1 text-emerald-400">
                   <CheckCircle2 className="w-3 h-3" />
@@ -160,16 +160,20 @@ export default function Hero() {
               </div>
               <div className="space-y-1 font-mono text-[10px] sm:text-[11px] text-slate-300">
                 <div className="flex items-center justify-between text-slate-300">
+                  <span>✔ test_playwright_codedropz_zip()</span>
+                  <span className="text-cyan-400">190ms</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-300">
                   <span>✔ test_web3_metamask_flow()</span>
                   <span className="text-cyan-400">240ms</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">
-                  <span>✔ test_ecom_checkout_bva()</span>
-                  <span className="text-cyan-400">115ms</span>
+                  <span>✔ test_vitest_skillta_data_integrity()</span>
+                  <span className="text-cyan-400">95ms</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">
-                  <span>✔ test_gemini_api_mail_karo()</span>
-                  <span className="text-cyan-400">310ms</span>
+                  <span>✔ test_ecom_checkout_bva()</span>
+                  <span className="text-cyan-400">115ms</span>
                 </div>
                 <div className="pt-1.5 text-emerald-400 font-semibold border-t border-slate-800/60 flex items-center justify-between">
                   <span>Suite Result:</span>

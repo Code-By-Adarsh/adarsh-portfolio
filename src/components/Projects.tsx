@@ -7,13 +7,14 @@ import {
   ExternalLink, 
   Github, 
   CheckCircle, 
+  Calendar,
   Sparkles, 
   Layers, 
   ShieldCheck, 
   ArrowUpRight 
 } from 'lucide-react';
 
-const filterCategories = ['All', 'Full-Stack & AI', 'QA Automation', 'Manual QA & STLC'] as const;
+const filterCategories = ['All', 'Full-Stack & Security', 'QA Automation', 'Manual QA & STLC'] as const;
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<string>('All');
@@ -38,7 +39,7 @@ export default function Projects() {
               Featured Projects &amp; Testing Suites
             </h2>
             <p className="text-slate-400 text-base sm:text-lg mt-3">
-              A curated selection of live AI products, automation frameworks, and end-to-end QA case studies.
+              A curated selection of security-centric platforms, automated regression frameworks, and STLC manual testing case studies.
             </p>
           </div>
 
@@ -71,9 +72,17 @@ export default function Projects() {
                 
                 {/* Top Badge & Links */}
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-950/70 text-cyan-300 border border-cyan-800/50 font-medium">
-                    {project.category}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-950/70 text-cyan-300 border border-cyan-800/50 font-medium">
+                      {project.category}
+                    </span>
+                    {project.period && (
+                      <span className="text-[10px] font-mono text-slate-400 hidden sm:inline-flex items-center gap-1">
+                        <Calendar className="w-3 h-3 text-cyan-400" />
+                        {project.period}
+                      </span>
+                    )}
+                  </div>
                   
                   <div className="flex items-center gap-2">
                     {project.githubUrl && (

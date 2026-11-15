@@ -8,7 +8,8 @@ import {
   GraduationCap, 
   CheckCircle, 
   Terminal,
-  Zap 
+  Zap,
+  Users
 } from 'lucide-react';
 import { portfolioData } from '@/data/portfolioData';
 
@@ -28,11 +29,11 @@ export default function About() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Testing with Precision,{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-              Building with Vision
+              Leading with Quality
             </span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-3">
-            I don&apos;t just write automated test scripts; I think like a user, break things like an adversary, and architect solutions like a product engineer.
+            I don&apos;t just write automated test scripts; I think like a user, break things like an adversary, and architect maintainable test suites across Web, Android, and Web3 environments.
           </p>
         </div>
 
@@ -44,31 +45,31 @@ export default function About() {
             <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/50 border border-slate-800/80 shadow-xl space-y-4">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-cyan-400" />
-                The Dual-Advantage: QA Tester + Indie Builder
+                Comprehensive QA Across Platforms &amp; Architectures
               </h3>
               <p className="text-slate-400">
-                Most testers only test code, and many developers don&apos;t thoroughly write edge-case tests. My background bridges both worlds: having hands-on experience in production Web3 QA at <span className="text-white font-medium">Stellar Code</span> and building my own AI platform <span className="text-white font-medium">SkillTa</span> gives me a holistic view of the entire software lifecycle.
+                My QA background spans 3 distinct production environments: testing decentralized Web3 smart contract flows and MetaMask wallets at <span className="text-white font-medium">Stellar Code</span>, leading testing teams across Web and Android apps at <span className="text-white font-medium">Rablo</span>, and building Selenium/Java Page Object Model automation suites at <span className="text-white font-medium">ConnektSphere</span>.
               </p>
               <p className="text-slate-400">
-                In Web3, a defect in compensation or wallet logic can mean irrevocable loss of user assets. That is why I specialize in <span className="text-cyan-300 font-medium">STLC-driven test design</span>, Boundary Value Analysis, Postman API contract testing, and Selenium/Playwright automation suites that run reliably in CI pipelines.
+                Whether applying <span className="text-cyan-300 font-medium">Boundary Value Analysis (BVA)</span> and Equivalence Partitioning to security timeouts in <span className="text-white font-medium">CodeDropz</span>, or running automated Vitest &amp; Playwright regression suites on <span className="text-white font-medium">SkillTa</span>, I ensure zero data leakage, high accessibility, and flawless user journeys.
               </p>
 
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
                 <div className="flex items-start gap-2 text-slate-300">
                   <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
-                  <span>Defect zero-tolerance mindset</span>
+                  <span>Web3 wallet &amp; smart contract flows</span>
                 </div>
                 <div className="flex items-start gap-2 text-slate-300">
                   <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
-                  <span>Decentralized Web3 wallet flows</span>
+                  <span>Android App &amp; Cross-Browser Testing</span>
                 </div>
                 <div className="flex items-start gap-2 text-slate-300">
                   <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
-                  <span>Maintainable POM Architecture</span>
+                  <span>Selenium POM &amp; Playwright E2E</span>
                 </div>
                 <div className="flex items-start gap-2 text-slate-300">
                   <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
-                  <span>AI Product Prototyping (Gemini)</span>
+                  <span>QA Team Leadership &amp; Defect Triage</span>
                 </div>
               </div>
             </div>
@@ -100,25 +101,32 @@ export default function About() {
 
                 <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
                   <span className="text-slate-400 flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-slate-400" /> Degree:
+                    <Layers className="w-4 h-4 text-slate-400" /> Education:
                   </span>
                   <span className="text-slate-200 font-medium">B.Sc. Computer Science (2027)</span>
+                </div>
+
+                <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
+                  <span className="text-slate-400 flex items-center gap-2">
+                    <Users className="w-4 h-4 text-slate-400" /> Leadership:
+                  </span>
+                  <span className="text-cyan-400 font-medium">QA Team Leader (Rablo)</span>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-2">
                     <Code2 className="w-4 h-4 text-slate-400" /> Focus:
                   </span>
-                  <span className="text-cyan-400 font-medium">QA Automation & Web3</span>
+                  <span className="text-cyan-400 font-medium">Automation &amp; STLC</span>
                 </div>
               </div>
             </div>
 
             {/* Quote / Highlight Box */}
             <div className="p-6 rounded-3xl bg-gradient-to-br from-cyan-950/30 to-indigo-950/30 border border-cyan-800/30 relative overflow-hidden">
-              <div className="text-cyan-400 font-mono text-xs uppercase tracking-wider mb-2">Builder Note</div>
+              <div className="text-cyan-400 font-mono text-xs uppercase tracking-wider mb-2">QA Principle</div>
               <p className="text-sm text-slate-300 italic">
-                &ldquo;Every bug prevented before production saves engineering hours, customer trust, and financial capital. Quality is an active feature, not an afterthought.&rdquo;
+                &ldquo;Every defect identified and triaged prior to release preserves user trust, protects business logic, and guarantees system resilience at scale.&rdquo;
               </p>
               <div className="mt-3 text-xs font-semibold text-slate-400">— Adarsh Mishra</div>
             </div>
