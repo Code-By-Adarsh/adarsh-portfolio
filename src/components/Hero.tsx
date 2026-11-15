@@ -8,10 +8,10 @@ import {
   Twitter, 
   ShieldCheck, 
   Sparkles, 
-  FileText, 
+  Download, 
   Terminal, 
   CheckCircle2,
-  Bug
+  Mail
 } from 'lucide-react';
 import { portfolioData } from '@/data/portfolioData';
 
@@ -60,7 +60,7 @@ export default function Hero() {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-3.5 pt-2 w-full sm:w-auto">
               <a
                 href="#projects"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 group"
@@ -70,16 +70,27 @@ export default function Hero() {
               </a>
 
               <a
-                href="#contact"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/70 hover:border-cyan-500/40 font-semibold text-sm transition-all flex items-center justify-center gap-2"
+                href="/Adarsh_Mishra_Resume.pdf"
+                download="Adarsh_Mishra_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/40 hover:border-cyan-400 font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm shadow-cyan-500/10 group"
               >
-                <FileText className="w-4 h-4 text-cyan-400" />
-                <span>Get In Touch / Hire</span>
+                <Download className="w-4 h-4 text-cyan-400 group-hover:-translate-y-0.5 transition-transform" />
+                <span>Download Resume</span>
+              </a>
+
+              <a
+                href="#contact"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/70 hover:border-slate-600 font-semibold text-sm transition-all flex items-center justify-center gap-2"
+              >
+                <Mail className="w-4 h-4 text-slate-400" />
+                <span>Contact</span>
               </a>
             </div>
 
             {/* Social Icons row */}
-            <div className="pt-4 flex items-center gap-4 text-slate-400">
+            <div className="pt-3 flex items-center gap-4 text-slate-400">
               <span className="text-xs font-mono uppercase tracking-wider text-slate-400">Connect:</span>
               <div className="flex items-center gap-3">
                 <a

@@ -13,6 +13,13 @@ export interface Project {
   highlights: string[];
 }
 
+export interface DocumentItem {
+  label: string;
+  url: string;
+  type: 'pdf' | 'image';
+  downloadName?: string;
+}
+
 export interface ExperienceItem {
   id: string;
   role: string;
@@ -24,6 +31,7 @@ export interface ExperienceItem {
   description: string[];
   skills: string[];
   link?: string;
+  documents?: DocumentItem[];
 }
 
 export interface Certification {
@@ -54,7 +62,7 @@ export const portfolioData = {
       twitter: "https://twitter.com/AdarshMi18",
       website: "https://www.skillta.tech",
     },
-    resumeUrl: "#contact",
+    resumeUrl: "/Adarsh_Mishra_Resume.pdf",
   },
 
   metrics: [
@@ -129,6 +137,14 @@ export const portfolioData = {
         "Designed test scenarios around membership and compensation logic and logged, triaged, and tracked defects to closure on a production-facing decentralized application within an agile QA team.",
       ],
       skills: ["Web3 QA", "MetaMask", "Sepolia Testnet", "Smart Contract Flows", "Jira", "Agile QA"],
+      documents: [
+        {
+          label: "Offer Letter",
+          url: "/docs/Stellar_Code_Offer_Letter.pdf",
+          type: "pdf",
+          downloadName: "Stellar_Code_QA_Intern_Offer_Letter.pdf",
+        },
+      ],
     },
     {
       id: "rablo",
@@ -143,6 +159,20 @@ export const portfolioData = {
         "Contributed as a team leader, coordinating testing activities, test assignments, and defect syncs within the QA team.",
       ],
       skills: ["Android App QA", "Web Testing", "Team Leadership", "QA Standards", "Defect Reporting", "Coordination"],
+      documents: [
+        {
+          label: "Offer Letter",
+          url: "/docs/Rablo_Offer_Letter.pdf",
+          type: "pdf",
+          downloadName: "Rablo_QA_Internship_Offer_Letter.pdf",
+        },
+        {
+          label: "Completion Certificate",
+          url: "/docs/Rablo_Completion_Certificate.pdf",
+          type: "pdf",
+          downloadName: "Rablo_Certificate_of_Completion_Team_Lead.pdf",
+        },
+      ],
     },
     {
       id: "connektsphere",
@@ -157,6 +187,26 @@ export const portfolioData = {
         "Built Selenium WebDriver (Java, TestNG, POM) UI automation scripts, validated backend endpoints via Postman, and maintained test data and defect records across Jira, MySQL, and Google Sheets.",
       ],
       skills: ["Selenium WebDriver", "Java", "TestNG", "Postman API", "POM", "MySQL", "Jira"],
+      documents: [
+        {
+          label: "Offer Letter",
+          url: "/docs/ConnektSphere_Offer_Letter.pdf",
+          type: "pdf",
+          downloadName: "ConnektSphere_Offer_Letter_QA_Tester.pdf",
+        },
+        {
+          label: "Completion Certificate (Photo)",
+          url: "/docs/ConnektSphere_Certificate.jpg",
+          type: "image",
+          downloadName: "ConnektSphere_Internship_Certificate.jpg",
+        },
+        {
+          label: "Letter of Recommendation (LOR)",
+          url: "/docs/ConnektSphere_Letter_of_Recommendation.pdf",
+          type: "pdf",
+          downloadName: "ConnektSphere_Letter_of_Recommendation.pdf",
+        },
+      ],
     },
   ] as ExperienceItem[],
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Terminal, ExternalLink } from 'lucide-react';
+import { Menu, X, Terminal, Download, FileText } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { portfolioData } from '@/data/portfolioData';
 
@@ -47,7 +47,7 @@ export default function Navbar() {
                 {portfolioData.personal.shortName}
               </span>
               <span className="text-[10px] uppercase font-mono tracking-wider text-cyan-400/90 -mt-1">
-                QA & Builder
+                QA &amp; Automation
               </span>
             </div>
           </Link>
@@ -65,22 +65,33 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right Actions */}
+          {/* Right Actions: Resume Download Button + ThemeToggle */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://www.skillta.tech"
+              href="/Adarsh_Mishra_Resume.pdf"
+              download="Adarsh_Mishra_Resume.pdf"
               target="_blank"
-              rel="noreferrer"
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/20 transition-all flex items-center gap-1.5"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/35 transition-all flex items-center gap-1.5 group"
             >
-              <span>SkillTa Live</span>
-              <ExternalLink className="w-3 h-3" />
+              <Download className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>Download Resume</span>
             </a>
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
+            <a
+              href="/Adarsh_Mishra_Resume.pdf"
+              download="Adarsh_Mishra_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 flex items-center gap-1"
+            >
+              <Download className="w-3 h-3" />
+              <span>Resume</span>
+            </a>
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -107,12 +118,14 @@ export default function Navbar() {
             ))}
             <div className="pt-2 border-t border-slate-800 mt-2 flex flex-col gap-2">
               <a
-                href="https://www.skillta.tech"
+                href="/Adarsh_Mishra_Resume.pdf"
+                download="Adarsh_Mishra_Resume.pdf"
                 target="_blank"
-                rel="noreferrer"
-                className="text-xs text-center font-semibold py-2 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
+                rel="noopener noreferrer"
+                className="text-xs text-center font-semibold py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white flex items-center justify-center gap-1.5 shadow-md shadow-cyan-500/20"
               >
-                Visit SkillTa Platform
+                <Download className="w-3.5 h-3.5" />
+                <span>Download Latest Resume (PDF)</span>
               </a>
             </div>
           </div>

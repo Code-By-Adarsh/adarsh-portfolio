@@ -1,10 +1,34 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolioData';
-import { Briefcase, Calendar, MapPin, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { 
+  Briefcase, 
+  Calendar, 
+  MapPin, 
+  ExternalLink, 
+  CheckCircle2, 
+  Download, 
+  FileText, 
+  Award, 
+  FileCheck,
+  Image as ImageIcon 
+} from 'lucide-react';
 
 export default function Experience() {
   const { experiences } = portfolioData;
+
+  const getDocIcon = (type: string, label: string) => {
+    if (type === 'image' || label.toLowerCase().includes('photo')) {
+      return <ImageIcon className="w-3.5 h-3.5 text-cyan-400" />;
+    }
+    if (label.toLowerCase().includes('recommendation') || label.toLowerCase().includes('lor')) {
+      return <FileCheck className="w-3.5 h-3.5 text-emerald-400" />;
+    }
+    if (label.toLowerCase().includes('certificate') || label.toLowerCase().includes('completion')) {
+      return <Award className="w-3.5 h-3.5 text-amber-400" />;
+    }
+    return <FileText className="w-3.5 h-3.5 text-cyan-400" />;
+  };
 
   return (
     <section id="experience" className="py-24 relative">
@@ -84,6 +108,31 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Verified Internship Documents & Download Buttons */}
+                {exp.documents && exp.documents.length > 0 && (
+                  <div className="pt-3 border-t border-slate-800/80">
+                    <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                      <span>Official Verification Documents:</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2.5">
+                      {exp.documents.map((doc, dIdx) => (
+                        <a
+                          key={dIdx}
+                          href={doc.url}
+                          download={doc.downloadName || doc.label}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/80 hover:bg-cyan-950/50 border border-slate-700/80 hover:border-cyan-500/50 text-xs font-medium text-slate-200 hover:text-cyan-300 transition-all shadow-sm group/btn"
+                        >
+                          {getDocIcon(doc.type, doc.label)}
+                          <span>{doc.label}</span>
+                          <Download className="w-3 h-3 text-slate-400 group-hover/btn:text-cyan-300 group-hover/btn:translate-y-0.5 transition-all" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Skills tags */}
                 <div className="pt-3 flex flex-wrap gap-2 border-t border-slate-800/80">
