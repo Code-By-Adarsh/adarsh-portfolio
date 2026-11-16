@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://adarsh-mishra.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codebyadarsh.me';
   const currentDate = new Date().toISOString();
 
   return [

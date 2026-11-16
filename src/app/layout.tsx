@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://adarsh-mishra.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codebyadarsh.me';
 const googleVerification = 'YctUXNPiuaTTyAxVD-3Urcz9F203gCdsrwaZXxsfc7I';
 
 export const metadata: Metadata = {
