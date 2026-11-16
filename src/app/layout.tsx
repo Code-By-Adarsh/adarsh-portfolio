@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://adarsh-mishra.vercel.app';
-const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'YOUR_GOOGLE_VERIFICATION_TOKEN';
+const googleVerification = 'YctUXNPiuaTTyAxVD-3Urcz9F203gCdsrwaZXxsfc7I';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -145,6 +145,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
+        <meta name="google-site-verification" content="YctUXNPiuaTTyAxVD-3Urcz9F203gCdsrwaZXxsfc7I" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
           type="application/ld+json"
