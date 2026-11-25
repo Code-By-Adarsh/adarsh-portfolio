@@ -148,6 +148,12 @@ export const portfolioData = {
           type: "pdf",
           downloadName: "Stellar_Code_QA_Intern_Offer_Letter.pdf",
         },
+        {
+          label: "Completion Certificate",
+          url: "/docs/Stellar_Code_Completion_Certificate.pdf",
+          type: "pdf",
+          downloadName: "Stellar_Code_Internship_Completion_Certificate.pdf",
+        },
       ],
     },
     {
